@@ -1,0 +1,191 @@
+*,body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+html {
+    background-color: #021224;
+}
+
+.mb10{
+    margin-bottom: 10px;
+}
+
+.align-center{
+    display: flex;
+    align-items: center;
+}
+
+.star-war-wrapper.container .header img{
+    height: 150px;
+    padding: 20px;
+}
+
+.star-war-wrapper.container .header{
+    background: url(../assets/bg.jpg);
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.star-war-wrapper.container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.star-war-wrapper.container .sub-header{
+    font-size: 19px;
+    color: #a9a9a9;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #000;
+    border-top:  1px solid #ccc;
+    border-bottom:  1px solid #ccc;
+    padding:0 20px;
+    font-weight: 700;
+}
+
+.star-war-wrapper.container .sub-header .category-tab .tab:first-child,
+.star-war-wrapper.container .sub-header .saved-tab
+{
+     border-left: 1px solid #ccc;
+}
+
+.star-war-wrapper.container .sub-header .category-tab{
+    padding: 0 10px;
+}
+
+.star-war-wrapper.container .sub-header .tab{
+    padding: 15px;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+}
+.star-war-wrapper.container .sub-header .tab .active {
+    border-bottom: 0;
+    transition:0.1s linear;
+}
+
+.star-war-wrapper.container .sub-header .tab .active{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+
+.star-war-wrapper.container .sub-header  .tab:hover{
+    color: #fff;
+}
+
+.star-war-wrapper.container .sub-header input{
+    padding: 7px;
+    outline: none;
+    margin-right: 20px;
+    width: 250px;
+}
+
+.star-war-wrapper.container .content{
+    display: flex;
+   background-color: #021224;
+   color: #fff;
+   padding: 10px;
+   height: 100vh;
+   
+}
+
+.star-war-wrapper.container .sub-header button{
+    height: 33.33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+table, th, td{
+    border-collapse: collapse;
+    text-align: center;
+    
+}
+
+.star-war-wrapper.container table{
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    
+}
+
+.star-war-wrapper.container .left-container{
+    position: relative;
+}
+
+.star-war-wrapper.container .left-container,
+.star-war-wrapper.container .right-container{
+    padding: 10px 20px;
+    width: 50%;
+}
+
+.star-war-wrapper.container table th{
+    background-color: #16A0BA;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    
+}
+
+.star-war-wrapper.container table td{
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+}
+
+.star-war-wrapper.container table td button{
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: rgb(37, 231, 37);
+    border-radius: 5px;
+}
+
+.star-war-wrapper.container .empty-container{
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.star-war-wrapper.container .loading {
+    height: 0;
+    width: 0;
+    padding: 15px;
+    border: 6px solid #ccc;
+    border-right-color: #888;
+    border-radius: 22px;
+    -webkit-animation: rotate 1s infinite linear;
+    /* left, top and position just for the demo! */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+@-webkit-keyframes rotate {
+
+    /* 100% keyframe for  clockwise. 
+     use 0% instead for anticlockwise */
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate{
+    100% {
+            transform: rotate(360deg);
+        }
+}

@@ -1,0 +1,127 @@
+<div class="container star-war-wrapper">
+    <div class="header">
+        <img src="../assets/logo.png" alt="">
+    </div>
+
+    <div class="sub-header">
+        <div class="category-tab align-center">
+            <div class="tab" (click)="selectTab('planets')">
+                <span [ngClass]="{'active': selectedTab === 'planets'}">Planets</span>
+            </div>
+            <div class="tab" (click)="selectTab('movies')">
+                <span [ngClass]="{'active': selectedTab === 'movies'}">Movies</span>
+            </div>
+        </div>
+        <div class="search-box align-center" *ngIf="selectedTab=='planets'">
+            <input type="text" #planetName placeholder="Search Planets..." (keyup)="searchPlanet(planetName.value)">
+            <button (click)="searchPlanet(planetName.value)">Search</button>
+        </div>
+        <div class="search-box align-center" *ngIf="selectedTab=='movies'">
+            <input type="text" #movieName placeholder="Search Movies..." (keyup)="searchMovie(movieName.value)"><button
+                (click)="searchPlanet(movieName.value)">Search</button>
+        </div>
+
+        <div class="saved-tab tab">
+            Saved Movies/Planets
+        </div>
+    </div>
+    <div class="content">
+        
+        <div class="left-container">
+            <div class="loading" *ngIf="!contentLoaded"></div>
+            <!-- Planets  -->
+            <div class="planet-container" *ngIf="selectedTab=='planets'">
+                <h3 class="mb10">List of Planets</h3>
+                <div class="planets">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of searchedPlanet">
+                                <td>{{item.name}}</td>
+                                <td>Image</td>
+                                <td><button (click)="addPlanet(item)">ADD</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Movies  -->
+            <div class="movie-container" *ngIf="selectedTab=='movies'">
+                <div class="movies">
+                    <h3 class="mb10">Movies</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of searchedMovie">
+                                <td>{{item.title}}</td>
+                                <td>Image</td>
+                                <td><button (click)="addMovie(item)">ADD</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right-container" >
+            <div>
+                <h3 class="mb10">Saved Planets</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of localStorageforPlanets">
+                            <td>{{item['name']}}</td>
+                            <td>image</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="empty-container" *ngIf="localStorageforPlanets.length == 0">
+                    No Planets are selected
+                </div>
+            </div>
+            
+            <h3 class="mb10">Saved Movies</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of localStorageforMovies" >
+                        <td> {{item['title']}} </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="empty-container" *ngIf="localStorageforMovies.length == 0">
+                No Planets are selected
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<router-outlet></router-outlet>
